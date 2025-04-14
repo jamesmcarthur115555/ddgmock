@@ -8,6 +8,19 @@ import CommunicationsCenter from './CommunicationsCenter.vue';
 
 const activeTab = ref('dashboard');
 
+const inventory = {
+  items: [
+    { id: 1, name: "Dental Chair", category: "Large Equipment", quantity: 4, lastServiced: "Aug 15, 2023" },
+    { id: 2, name: "Autoclave", category: "Small Equipment", quantity: 2, lastServiced: "Sep 10, 2023" },
+    { id: 3, name: "Dental Handpieces", category: "Small Equipment", quantity: 12, lastServiced: "Oct 5, 2023" },
+    { id: 4, name: "Composite Material", category: "Consumables", quantity: 25, lastServiced: "N/A" }
+  ],
+  categories: [
+    { name: "Equipment", link: "#" },
+    { name: "Consumables", link: "#" }
+  ]
+};
+
 const setActiveTab = (tab) => {
   activeTab.value = tab;
 };
@@ -16,15 +29,16 @@ const setActiveTab = (tab) => {
 <template>
   <div class="ddg-portal bg-gray-50 min-h-screen">
     <!-- Header -->
-    <header class="bg-white shadow-sm">
+    <header class=" shadow-sm text-white" style="background-color: rgb(33, 44, 85)">
       <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-4 flex justify-between items-center">
         <div class="flex items-center">
-          <div class="h-10 w-10 bg-blue-600 rounded-md flex items-center justify-center text-white font-bold text-xl">
-            DDG</div>
-          <h1 class="ml-4 text-2xl font-semibold text-blue-800">Customer Portal</h1>
+          <div class="h-10 w-10 ">
+            <img src="@/assets/dd-logo.webp" alt="DDG Logo" class="h-full w-full object-contain">
+          </div>
+          <h1 class="ml-4 text-2xl font-semibold text-white">Customer Portal</h1>
         </div>
         <div class="flex items-center">
-          <button class="text-gray-600 hover:text-blue-800 mr-4">
+          <button class="text-gray-600 hover:text-white-800 mr-4">
             <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24"
               stroke="currentColor">
               <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
@@ -32,7 +46,7 @@ const setActiveTab = (tab) => {
             </svg>
           </button>
           <div class="relative">
-            <button class="flex items-center text-gray-700 hover:text-blue-800">
+            <button class="flex items-center text-white-700 hover:text-white-300">
               <div class="h-8 w-8 rounded-full bg-gray-300 flex items-center justify-center text-gray-600">DS</div>
               <span class="ml-2">Dr. Smith</span>
               <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 ml-1" viewBox="0 0 20 20" fill="currentColor">
@@ -143,12 +157,38 @@ const setActiveTab = (tab) => {
                 </li>
               </ul>
             </div>
+
+
           </div>
+
+          <div> <img src="@/assets/banner1.png" alt="DDG Logo" class="h-full w-full object-contain"></div>
+
+
         </div>
 
         <!-- Right Column -->
         <div class="space-y-8">
-          <CommunicationsCenter />
+          <section class="bg-white rounded-lg shadow-md overflow-hidden">
+            <div class=" p-6">
+              <h3 class="text-lg font-medium text-gray-900 mb-4">Purchasing Links</h3>
+              <div class="grid grid-cols-1  gap-4">
+                <div v-for="(category, index) in inventory.categories" :key="index"
+                  class="border rounded-lg p-4 hover:border-blue-500 hover:shadow-md transition-all text-center flex flex-col items-center gap-2">
+                  <h4 class="text-base font-medium text-gray-900">{{ category.name }}</h4>
+                  <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5"
+                    stroke="currentColor" class="size-6">
+                    <path stroke-linecap="round" stroke-linejoin="round"
+                      d="M2.25 3h1.386c.51 0 .955.343 1.087.835l.383 1.437M7.5 14.25a3 3 0 0 0-3 3h15.75m-12.75-3h11.218c1.121-2.3 2.1-4.684 2.924-7.138a60.114 60.114 0 0 0-16.536-1.84M7.5 14.25 5.106 5.272M6 20.25a.75.75 0 1 1-1.5 0 .75.75 0 0 1 1.5 0Zm12.75 0a.75.75 0 1 1-1.5 0 .75.75 0 0 1 1.5 0Z" />
+                  </svg>
+
+                  <a :href="category.link" class="mt-2 inline-block text-blue-600 hover:text-blue-800 font-medium">
+                    Browse Catalog
+                  </a>
+                </div>
+              </div>
+            </div>
+            <CommunicationsCenter />
+          </section>
         </div>
       </div>
 
@@ -166,7 +206,12 @@ const setActiveTab = (tab) => {
       <div v-if="activeTab === 'inventory'" class="space-y-8">
         <InventoryManagement />
       </div>
+
+
+
     </main>
+
+
 
     <!-- Footer -->
     <footer class="bg-blue-900 text-white mt-12">
@@ -174,11 +219,11 @@ const setActiveTab = (tab) => {
         <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
           <div>
             <h3 class="text-lg font-semibold mb-4">Contact DDG</h3>
-            <p class="mb-2">1234 Dental Drive</p>
-            <p class="mb-2">Suite 100</p>
-            <p class="mb-2">Dental City, DC 12345</p>
-            <p class="mb-2">Phone: (555) 123-4567</p>
-            <p>Email: support@ddgdental.com</p>
+            <p class="mb-2">DD, 6 Perry Way</p>
+            <p class="mb-2">Witham</p>
+            <p class="mb-2">Essex CM8 3SX</p>
+            <p class="mb-2">Phone: 0800 585 586</p>
+            <p>Email: contactcentre@ddgroup.com</p>
           </div>
           <div>
             <h3 class="text-lg font-semibold mb-4">Quick Links</h3>

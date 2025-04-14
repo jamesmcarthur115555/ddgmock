@@ -1,7 +1,7 @@
 <script setup>
 import { ref } from 'vue';
 
-const isExpanded = ref(false);
+const isExpanded = ref(true);
 const toggleExpand = () => {
     isExpanded.value = !isExpanded.value;
 };

@@ -105,13 +105,50 @@ const complianceData = {
                             </div>
                         </div>
                     </div>
-
                     <div class="mt-8 flex justify-center">
-                        <button
-                            class="inline-flex items-center px-4 py-2 border border-transparent text-sm font-medium rounded-md shadow-sm text-white bg-blue-600 hover:bg-blue-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-blue-500">
-                            Browse All Training Programs
-                        </button>
+
+                        <div class="grid grid-cols-3  gap-4">
+                            <div class="border rounded-lg p-4 hover:border-blue-500 hover:shadow-md transition-all
+                                text-center flex flex-col items-center gap-2">
+                                <h4 class="text-base font-medium text-gray-900">Remote Training Courses</h4>
+                                <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24"
+                                    stroke-width="1.5" stroke="currentColor" class="size-6">
+                                    <path stroke-linecap="round" stroke-linejoin="round"
+                                        d="M9 17.25v1.007a3 3 0 0 1-.879 2.122L7.5 21h9l-.621-.621A3 3 0 0 1 15 18.257V17.25m6-12V15a2.25 2.25 0 0 1-2.25 2.25H5.25A2.25 2.25 0 0 1 3 15V5.25m18 0A2.25 2.25 0 0 0 18.75 3H5.25A2.25 2.25 0 0 0 3 5.25m18 0V12a2.25 2.25 0 0 1-2.25 2.25H5.25A2.25 2.25 0 0 1 3 12V5.25" />
+                                </svg>
+
+
+
+                            </div>
+
+                            <div class="border rounded-lg p-4 hover:border-blue-500 hover:shadow-md transition-all
+                                text-center flex flex-col items-center gap-2">
+                                <h4 class="text-base font-medium text-gray-900">In Practice Training Courses</h4>
+                                <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24"
+                                    stroke-width="1.5" stroke="currentColor" class="size-6">
+                                    <path stroke-linecap="round" stroke-linejoin="round"
+                                        d="M2.25 21h19.5m-18-18v18m10.5-18v18m6-13.5V21M6.75 6.75h.75m-.75 3h.75m-.75 3h.75m3-6h.75m-.75 3h.75m-.75 3h.75M6.75 21v-3.375c0-.621.504-1.125 1.125-1.125h2.25c.621 0 1.125.504 1.125 1.125V21M3 3h12m-.75 4.5H21m-3.75 3.75h.008v.008h-.008v-.008Zm0 3h.008v.008h-.008v-.008Zm0 3h.008v.008h-.008v-.008Z" />
+                                </svg>
+
+
+
+                            </div>
+
+                            <div class="border rounded-lg p-4 hover:border-blue-500 hover:shadow-md transition-all
+                                text-center flex flex-col items-center gap-2">
+                                <h4 class="text-base font-medium text-gray-900">Off Site Training Courses</h4>
+                                <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24"
+                                    stroke-width="1.5" stroke="currentColor" class="size-6">
+                                    <path stroke-linecap="round" stroke-linejoin="round"
+                                        d="M4.26 10.147a60.438 60.438 0 0 0-.491 6.347A48.62 48.62 0 0 1 12 20.904a48.62 48.62 0 0 1 8.232-4.41 60.46 60.46 0 0 0-.491-6.347m-15.482 0a50.636 50.636 0 0 0-2.658-.813A59.906 59.906 0 0 1 12 3.493a59.903 59.903 0 0 1 10.399 5.84c-.896.248-1.783.52-2.658.814m-15.482 0A50.717 50.717 0 0 1 12 13.489a50.702 50.702 0 0 1 7.74-3.342M6.75 15a.75.75 0 1 0 0-1.5.75.75 0 0 0 0 1.5Zm0 0v-3.675A55.378 55.378 0 0 1 12 8.443m-7.007 11.55A5.981 5.981 0 0 0 6.75 15.75v-1.5" />
+                                </svg>
+
+
+                            </div>
+                        </div>
+
                     </div>
+
                 </div>
 
                 <!-- Compliance Tab -->
@@ -119,7 +156,19 @@ const complianceData = {
                     <h2 class="text-xl font-bold text-gray-800 mb-6">Compliance Management</h2>
 
                     <div class="mb-8">
-                        <h3 class="text-lg font-medium text-gray-800 mb-4">Certificates & Licenses</h3>
+                        <div class="flex justify-between items-center mb-4">
+                            <h3 class="text-lg font-medium text-gray-900">Certificates & Licenses</h3>
+                            <button @click="openAddDialog"
+                                class="text-sm text-blue-600 hover:text-blue-800 font-medium flex items-center gap-2">
+                                <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24"
+                                    stroke-width="1.5" stroke="currentColor" class="size-6">
+                                    <path stroke-linecap="round" stroke-linejoin="round"
+                                        d="M12 16.5V9.75m0 0 3 3m-3-3-3 3M6.75 19.5a4.5 4.5 0 0 1-1.41-8.775 5.25 5.25 0 0 1 10.233-2.33 3 3 0 0 1 3.758 3.848A3.752 3.752 0 0 1 18 19.5H6.75Z" />
+                                </svg>
+                                Upload Doc
+                            </button>
+                        </div>
+
                         <div class="overflow-hidden shadow ring-1 ring-black ring-opacity-5 md:rounded-lg">
                             <table class="min-w-full divide-y divide-gray-300">
                                 <thead class="bg-gray-50">
@@ -149,7 +198,7 @@ const complianceData = {
                                             </span>
                                         </td>
                                         <td class="whitespace-nowrap px-3 py-4 text-sm text-gray-500">{{ cert.expiryDate
-                                            }}</td>
+                                        }}</td>
                                         <td class="whitespace-nowrap py-4 pl-3 pr-4 text-right text-sm font-medium">
                                             <a href="#" class="text-blue-600 hover:text-blue-900">View</a>
                                         </td>
@@ -192,13 +241,24 @@ const complianceData = {
                     </div>
                 </div>
 
-                <div class="mt-8 p-4 bg-blue-50 border border-blue-200 rounded-lg">
-                    <h4 class="font-medium text-blue-800">Special Membership Offer</h4>
-                    <p class="mt-1 text-sm text-blue-700">Upgrade to Premium Plus and receive a complimentary annual
-                        compliance audit worth $1,200.</p>
-                    <button class="mt-3 text-sm bg-blue-600 text-white px-4 py-2 rounded hover:bg-blue-700">
-                        Learn More
-                    </button>
+                <div class="grid grid-cols-4 gap-2">
+
+                    <div class="mt-8 p-4 bg-blue-50 border border-blue-200 rounded-lg col-span-3 ">
+                        <h4 class="font-medium text-blue-800">Special Membership Offer</h4>
+                        <p class="mt-1 text-sm text-blue-700">Upgrade to Premium Plus and receive a complimentary annual
+                            compliance audit worth $1,200.</p>
+                        <button class="mt-3 text-sm bg-blue-600 text-white px-4 py-2 rounded hover:bg-blue-700">
+                            Learn More
+                        </button>
+                    </div>
+
+                    <div class="mt-8 p-4 border border-black-400 rounded-lg col-span-1 ">
+                        <h4 class="font-medium text-blue-800">Compliance Policies</h4>
+                        <p class="mt-1 text-sm text-blue-700"></p>
+                        <button class="mt-3 text-sm bg-blue-600 text-white px-4 py-2 rounded hover:bg-blue-700">
+                            Shop Now
+                        </button>
+                    </div>
                 </div>
             </div>
         </div>
